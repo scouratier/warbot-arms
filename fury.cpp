@@ -23,6 +23,7 @@ Fury::Fury(){
 	this->recklessness='8';
 	this->bloodBath='7';
 	this->trinket='9';
+	this->charge='1';
 }
 
 int Fury::inCombat(int in)
@@ -34,9 +35,19 @@ int Fury::inCombat(int in)
 	return 0;
 }
 
+int Fury::Following(int in)
+{
+	if ( in & 0x02 )
+	{
+		return 1;
+	}
+	return 0;
+}
+
 int Fury::DoMove(Dots in){
 	int				r1,g1,b1;
 	int				combat=0;
+	int				follow=0;
 	r1 = GetRValue( in.allDots_[0].color_ );
 	g1 = GetGValue( in.allDots_[0].color_ );
 	b1 = GetBValue( in.allDots_[0].color_ );
@@ -48,8 +59,13 @@ int Fury::DoMove(Dots in){
 		FullKeyPress(VkKeyScan( ',' ));
 	}
 	else
-		FullKeyPress(VkKeyScan( 'l' ));
-
+	{
+		follow = this->Following( g1 );
+		if ( !follow )
+		{
+			FullKeyPress(VkKeyScan( 'l' ));
+		}
+	}
 	return 1;
 }
 
@@ -169,6 +185,11 @@ int Fury::UpdateSpells(int in1,int in2,int in3){
 		return 1;
 	}
 
+	if (in3 & 0x02)
+	{
+		this->nextKey = this->charge;
+		return 1;
+	}
 	return 1;
 }
 

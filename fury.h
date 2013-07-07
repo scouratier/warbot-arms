@@ -7,6 +7,7 @@ public:
 
 	int UpdateSpells(int,int,int);
 	int inCombat(int);
+	int Following(int);
 
 	void CombatStart();
 	void CombatEnd();
