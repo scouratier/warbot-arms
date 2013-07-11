@@ -60,11 +60,11 @@ int Fury::DoMove(Dots in){
 	}
 	else
 	{
-		follow = this->Following( g1 );
+		/*follow = this->Following( g1 );
 		if ( !follow )
 		{
 			FullKeyPress(VkKeyScan( 'l' ));
-		}
+		}*/
 	}
 	return 1;
 }
