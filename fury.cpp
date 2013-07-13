@@ -44,28 +44,50 @@ int Fury::Following(int in)
 	return 0;
 }
 
+int Fury::forcedFollowing(int in)
+{
+	if ( in & 0x04 )
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int Fury::Mounted(int in)
+{
+	if ( in & 0x08 )
+	{
+		return 1;
+	}
+	return 0;
+}
+
+
 int Fury::DoMove(Dots in){
 	int				r1,g1,b1;
 	int				combat=0;
 	int				follow=0;
+	int				forcedFollow=0;
+	int				mounted=0;
 	r1 = GetRValue( in.allDots_[0].color_ );
 	g1 = GetGValue( in.allDots_[0].color_ );
 	b1 = GetBValue( in.allDots_[0].color_ );
 	
 	combat = this->inCombat( g1 );
+	forcedFollow = this->forcedFollowing( g1 );
+	mounted = this->Mounted( g1 );
 	if ( combat )
 	{
 		FullKeyPress(VkKeyScan( ';' ));
 		FullKeyPress(VkKeyScan( ',' ));
 	}
-	else
+	if ( mounted )
 	{
-		/*follow = this->Following( g1 );
-		if ( !follow )
-		{
-			FullKeyPress(VkKeyScan( 'l' ));
-		}*/
 	}
+	if ( forcedFollow )
+	{
+
+
 	return 1;
 }
 

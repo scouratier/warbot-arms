@@ -8,6 +8,8 @@ public:
 	int UpdateSpells(int,int,int);
 	int inCombat(int);
 	int Following(int);
+	int Mounted(int);
+	int forcedFollowing(int);
 
 	void CombatStart();
 	void CombatEnd();

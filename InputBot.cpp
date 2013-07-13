@@ -28,7 +28,7 @@ void main(void){
 		dots_timer.tick();
 		keybt = input_timer.time_span;
 		dotst = dots_timer.time_span;
-		if (keybt > 0.5)
+		if (keybt > 0.3)
 		{
 			input_timer.savetick();
 			me.DoMove(dots);
