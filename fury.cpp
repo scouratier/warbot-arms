@@ -79,15 +79,14 @@ int Fury::DoMove(Dots in){
 	if ( combat )
 	{
 		FullKeyPress(VkKeyScan( ';' ));
-		FullKeyPress(VkKeyScan( ',' ));
+		if ( !forcedFollow)
+		{
+			FullKeyPress(VkKeyScan( ',' ));
+		}
 	}
 	if ( mounted )
 	{
 	}
-	if ( forcedFollow )
-	{
-
-
 	return 1;
 }
 
