@@ -22,6 +22,7 @@ private:
 	char mortalStrike;
 	char berserkerRage;
 	char overpower;
+	char slam;
 	char rampage;
 	char execute;
 	char intercept;
@@ -47,6 +48,7 @@ private:
 	char skullBanner;
 	char dragonRoar;
 	char bloodBath;
+	char avatar;
 	char battleShout;
 	char trinket;
 

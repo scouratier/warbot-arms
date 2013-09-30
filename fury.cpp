@@ -5,7 +5,8 @@ Fury::Fury(){
 	this->whirlWind='.';
 	this->mortalStrike='2';
 	this->berserkerRage='z';
-	this->overpower='4';
+	this->overpower='3';
+	this->slam='4';
 	this->rampage='c';
 	this->execute='5';
 	this->intercept='.';
@@ -21,6 +22,7 @@ Fury::Fury(){
 	this->ragingBlow='3';
 	this->skullBanner='-';
 	this->recklessness='8';
+	this->avatar='7';
 	this->bloodBath='7';
 	this->trinket='9';
 	this->charge='1';
@@ -109,8 +111,6 @@ int	Fury::DoLogic(Dots in){
 		this->UpdateSpells(r2,g2,b2);
 		if ( this->nextKey != '.' )
 			FullKeyPress(VkKeyScan( this->nextKey ));
-
-
 
 	return 0;
 }
